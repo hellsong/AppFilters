@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_back_ground">
+
+    <com.hellsong.appfilters.widget.FilterButton
+        android:id="@+id/filter_open_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="9dp"/>
+
+    <View
+        android:id="@+id/menu_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_menu"/>
+
+    <FrameLayout
+        android:id="@+id/card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/filter_open_button">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="105dp"
+            android:layout_marginLeft="@dimen/main_activity_card_margin"
+            android:layout_marginRight="@dimen/main_activity_card_margin"
+            android:layout_marginTop="5dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="110dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ridgway_colorado"
+                app:riv_corner_radius="@dimen/picture_card_round_radius"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/bottom_rounded_rect">
+
+                <TextView
+                    android:id="@+id/card_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:text="Ridgway,CO"
+                    android:textSize="30sp"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="7dp">
+
+                    <TextView
+                        android:id="@+id/card_destin_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="54"
+                        android:textColor="#60A5E9"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/card_destin_num"
+                        android:text="Destinations Available"
+                        android:textColor="#60A5E9"
+                        android:textSize="15sp"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/content_tab"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/fliter_option"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/filter_open_button"
+        android:layout_marginBottom="105dp"
+        android:layout_marginLeft="@dimen/main_activity_card_margin"
+        android:layout_marginRight="@dimen/main_activity_card_margin"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/filter_selected_count_1"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="27dp"
+        android:layout_toLeftOf="@id/filter_open_button"
+        android:background="@drawable/white_circle"
+        android:gravity="center"
+        android:textColor="#10395a"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/filter_selected_count_2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="27dp"
+        android:layout_toLeftOf="@id/filter_open_button"
+        android:background="@drawable/white_circle"
+        android:gravity="center"
+        android:textColor="#10395a"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>

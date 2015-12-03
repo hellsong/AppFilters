@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#425a73</color>
+    <color name="colorPrimaryDark">#10395a</color>
+    <color name="colorAccent">#10395a</color>
+
+    <color name="white">#ffffff</color>
+    <color name="filter_item_normal_color">#426B84</color>
+    <color name="filter_item_text_selected_color">#5A738C</color>
+    <color name="tab_item_text_normal_color">#657B92</color>
+    <color name="tab_item_text_selected_color">#ffffff</color>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="fliter_drawable_size">50dp</dimen>
+    <dimen name="fliter_drawable_bar_size">25dp</dimen>
+    <dimen name="fliter_drawable_close_state_width">18dp</dimen>
+    <dimen name="fliter_drawable_thickness">2dp</dimen>
+    <dimen name="fliter_drawable_gap">11dp</dimen>
+    <dimen name="fliter_drawable_circle_radiu">2dp</dimen>
+    <dimen name="picture_card_round_radius">4dp</dimen>
+
+    <dimen name="main_activity_card_margin">25dp</dimen>
+    <dimen name="main_activity_filter_option_section_margin_bottom">60dp</dimen>
+    <dimen name="tab_list_item_margin_left">12dp</dimen>
+</resources>
