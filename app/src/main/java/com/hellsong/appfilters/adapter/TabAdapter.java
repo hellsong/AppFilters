@@ -17,15 +17,15 @@ import java.util.List;
 public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ItemHolder> {
 
     private List<String> mDataList = new ArrayList<>();
-    private TextView mSelectedItem;
+    private int mSelectedItemPos;
     private View.OnClickListener mItemOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (mSelectedItem != null) {
-                mSelectedItem.setTextColor(v.getResources().getColor(R.color.tab_item_text_normal_color));
-            }
-            mSelectedItem = (TextView) v;
-            mSelectedItem.setTextColor(v.getResources().getColor(R.color.tab_item_text_selected_color));
+            int pos = (int) v.getTag();
+            notifyItemChanged(mSelectedItemPos);
+            mSelectedItemPos = pos;
+            TextView tv = (TextView) v;
+            tv.setTextColor(v.getResources().getColor(R.color.tab_item_text_selected_color));
         }
     };
 
@@ -37,7 +37,7 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ItemHolder> {
 
     @Override
     public void onBindViewHolder(TabAdapter.ItemHolder holder, int position) {
-        holder.bindData(mDataList.get(position), position, mItemOnClickListener);
+        holder.bindData(mDataList.get(position), position, mItemOnClickListener, mSelectedItemPos == position);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ItemHolder> {
             mTitleView = (TextView) itemView.findViewById(R.id.tab_title);
         }
 
-        public void bindData(String title, int position, View.OnClickListener mItemOnClickListener) {
+        public void bindData(String title, int position, View.OnClickListener mItemOnClickListener, boolean isSelected) {
             mTitleView.setText(title);
             if (position == 0) {
                 RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) mTitleView.getLayoutParams();
@@ -67,6 +67,12 @@ public class TabAdapter extends RecyclerView.Adapter<TabAdapter.ItemHolder> {
                 RecyclerView.LayoutParams lp = (RecyclerView.LayoutParams) mTitleView.getLayoutParams();
                 lp.leftMargin = (int) mTitleView.getResources().getDimension(R.dimen.tab_list_item_margin_left);
             }
+            if (isSelected) {
+                mTitleView.setTextColor(mTitleView.getResources().getColor(R.color.tab_item_text_selected_color));
+            } else {
+                mTitleView.setTextColor(mTitleView.getResources().getColor(R.color.tab_item_text_normal_color));
+            }
+            mTitleView.setTag(position);
             mTitleView.setOnClickListener(mItemOnClickListener);
         }
     }

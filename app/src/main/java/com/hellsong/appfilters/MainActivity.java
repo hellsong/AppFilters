@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mFilterSelectedCount2;
     private RecyclerView mTabList;
     private TabAdapter mTabAdapter;
+    private LinearLayoutManager mLayoutManager;
 
     private List<FilterSection> mFilterData;
     private List<String> mTabData;
@@ -121,9 +122,20 @@ public class MainActivity extends AppCompatActivity {
         mTabAdapter.setData(mTabData);
         bindFilterData();
         mTabList.setAdapter(mTabAdapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mTabList.setLayoutManager(layoutManager);
+        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mTabList.setLayoutManager(mLayoutManager);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTabList.post(new Runnable() {
+            @Override
+            public void run() {
+                mTabList.findViewHolderForAdapterPosition(mLayoutManager.findFirstVisibleItemPosition()).itemView.performClick();
+            }
+        });
     }
 
     private void updateFilterCount() {
